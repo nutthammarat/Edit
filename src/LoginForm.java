@@ -1,16 +1,18 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Choppy
  */
 public class LoginForm extends javax.swing.JFrame {
 
-    public static User userCurrent ;
+    public static User userCurrent;
 
     /**
      * Creates new form LoginForm
@@ -129,13 +131,10 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void btn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LoginActionPerformed
         User user = new User(txt_Username.getText(), txt_Password.getText());
-        LoginService.goToMain(user);
+        goToMain(user);
         setVisible(false);
         userCurrent = UserService.getUser(txt_Username.getText());
-       // CartService.usercurrentdao = usercurent;
-//        MainPage.userIdtxt.setText(usercurent);
-        
-        
+
 
     }//GEN-LAST:event_btn_LoginActionPerformed
 
@@ -147,6 +146,22 @@ public class LoginForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    public static void goToMain(User user) {
+        if (LoginService.goToMain(user)) {
+            MainPage main = new MainPage();
+            main.setVisible(true);
+            JOptionPane.showMessageDialog(null,
+                    "ยินดีต้อนรับ อย่าลืมไปกรอกข้อมูลส่วนตัวก่อนสั่งสินค้า",
+                    "Message",
+                    JOptionPane.PLAIN_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "กรุณากรอก usernameให้ถูกต้อง", "แจ้งเตือน", 0);
+            LoginForm login = new LoginForm();
+            login.setVisible(true);
+        }
+
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

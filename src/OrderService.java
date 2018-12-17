@@ -1,4 +1,3 @@
-
 import java.awt.TextArea;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
@@ -48,11 +47,6 @@ public class OrderService {
             }
         }
         return sum;
-    }
-
-    public static void showOrderPage() {
-        OrderPage orderpage = new OrderPage();
-        orderpage.setVisible(true);
     }
 
     public static void addToOrder() {

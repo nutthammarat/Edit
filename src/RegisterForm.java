@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -122,19 +125,35 @@ public class RegisterForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_UsernameActionPerformed
 
     private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
-        RegisterService.goTOLogin();
+       goToLogin();
         setVisible(false);
     }//GEN-LAST:event_btn_CancelActionPerformed
 
     private void btn_RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegisterActionPerformed
-        RegisterService.addDataUser(txt_Username.getText(),txt_Password.getText(),txt_Confirmpassword.getText() );
+        addDataUser();
         setVisible(false);
     }//GEN-LAST:event_btn_RegisterActionPerformed
+
+    public void addDataUser() {
+        if(RegisterService.addDataUser(txt_Username.getText(),txt_Password.getText(),txt_Confirmpassword.getText())){
+            JOptionPane.showMessageDialog(null,"สมัครสมาชิกเรียบร้อย","Register message",JOptionPane.PLAIN_MESSAGE);
+             goToLogin();
+        }else{
+            JOptionPane.showMessageDialog(null,"กรุณากรอก username , password ,passwordcomfirm ให้ถูกต้อง และpassกรอกห้ามน้อยกว่า5ตัว ","แจ้งเตือน",0);
+            new RegisterForm().setVisible(true);
+           
+            
+        
+        }
+    }
 
     private void txt_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_PasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_PasswordActionPerformed
-
+    public static void goToLogin(){
+        LoginForm login = new LoginForm();
+        login.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */

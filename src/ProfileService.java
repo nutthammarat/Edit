@@ -1,42 +1,10 @@
-
-
 import javax.swing.JOptionPane;
 
 public class ProfileService {
 
-    public static void getDetailUser(User users) {
+    //public static void getDetailUser(User users) {
        // System.out.println(users.getUsername() + " a " + users.getAddress().toString());
-    }
-
-    public static void showChangePhoneForm() {
-        ChangePhoneForm tel = new ChangePhoneForm();
-        tel.show();
-    }
-
-    public static void showChangeAddressForm() {
-        ChangeAddressForm address = new ChangeAddressForm();
-        address.show();
-    }
-    public static void showMainPageForm() {
-       MainPage mainpage = new MainPage();
-        mainpage.show();
-    }
-
-    public static void showProfileForm() {
-        ProfileForm profile = new ProfileForm();
-        profile.show();
-    }
-
-    public static boolean checkNullTextfield(String textfield) {
-        if (textfield.isEmpty()) {
-            JOptionPane.showMessageDialog(null,
-                    "กรุณากรอกข้อมูล",
-                    "พบข้อผิดพลาด",
-                    JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        return true;
-    }
+    //}
 
     public static User getUser(String username) {
         return UserDao.getUser(username);
@@ -86,6 +54,17 @@ public class ProfileService {
                     JOptionPane.ERROR_MESSAGE);
             return false;
         }
+    }
+    
+    public static boolean checkNullTextfield(String textfield) {
+        if (textfield.isEmpty()) {
+            JOptionPane.showMessageDialog(null,
+                    "กรุณากรอกข้อมูล",
+                    "พบข้อผิดพลาด",
+                    JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
     }
 
 }

@@ -7,6 +7,7 @@ public class ChangeAddressForm extends javax.swing.JFrame {
     public ChangeAddressForm() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,10 +85,13 @@ public class ChangeAddressForm extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+     public static void showProfileForm() {
+        ProfileForm profile = new ProfileForm();
+        profile.show();
+    } 
     private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
         // TODO add your handling code here:
-        ProfileService.showProfileForm();
+        showProfileForm();
         this.hide();
     }//GEN-LAST:event_btn_CancelActionPerformed
 
@@ -99,7 +103,7 @@ public class ChangeAddressForm extends javax.swing.JFrame {
        String address = txt_NameAddress.getText();
         if(ProfileService.checkNullTextfield(address)){
             ProfileService.changeAddress(LoginForm.userCurrent,address);
-            ProfileService.showProfileForm();
+            showProfileForm();
             this.hide();
         }
     }//GEN-LAST:event_btn_OkActionPerformed

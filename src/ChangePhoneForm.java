@@ -81,14 +81,17 @@ public class ChangePhoneForm extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+     public static void showProfileForm() {
+        ProfileForm profile = new ProfileForm();
+        profile.show();
+    } 
     private void txt_TelPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_TelPhoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_TelPhoneActionPerformed
 
     private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
         // TODO add your handling code here:
-        ProfileService.showProfileForm();
+        showProfileForm();
         this.hide();
     }//GEN-LAST:event_btn_CancelActionPerformed
 
@@ -106,7 +109,7 @@ public class ChangePhoneForm extends javax.swing.JFrame {
         String phone = txt_TelPhone.getText();
         if(ProfileService.checkNullTextfield(phone)&&ProfileService.checkLengthPhone(phone)&&ProfileService.checkFristNumber(phone)){
             ProfileService.changePhone(LoginForm.userCurrent,phone);
-            ProfileService.showProfileForm();
+            showProfileForm();
             this.hide();
         }else{
             txt_TelPhone.setText("");

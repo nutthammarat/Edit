@@ -146,28 +146,45 @@ public class ProfileForm extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+     public static void showChangePhoneForm() {
+        ChangePhoneForm phone = new ChangePhoneForm();
+        phone.show();
+    }
 
+    public static void showChangeAddressForm() {
+        ChangeAddressForm address = new ChangeAddressForm();
+        address.show();
+    }
+    public static void showMainPageForm() {
+       MainPage mainpage = new MainPage();
+        mainpage.show();
+    }
+    public static void showOrderForm() {
+        OrderPage order = new OrderPage();
+        order.show();
+    }
     private void btn_changephoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_changephoneActionPerformed
         // TODO add your handling code here:
-        ProfileService.showChangePhoneForm();
+        showChangePhoneForm();
         this.hide();
     }//GEN-LAST:event_btn_changephoneActionPerformed
 
     private void btn_changeaddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_changeaddressActionPerformed
         // TODO add your handling code here:
-        ProfileService.showChangeAddressForm();
+        showChangeAddressForm();
         this.hide();
          
         
     }//GEN-LAST:event_btn_changeaddressActionPerformed
 
     private void btn_OrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_OrderActionPerformed
-        OrderService.showOrderPage();
+        showOrderForm();
+        this.hide();
     }//GEN-LAST:event_btn_OrderActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-        ProfileService.showMainPageForm();
+        showMainPageForm();
         this.setVisible(false);
     }//GEN-LAST:event_btn_backActionPerformed
 

@@ -142,7 +142,10 @@ public class CartPage extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+     public static void showProfileForm() {
+        ProfileForm profile = new ProfileForm();
+        profile.show();
+    } 
     private void btn_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BackActionPerformed
         dispose();
     }//GEN-LAST:event_btn_BackActionPerformed
@@ -156,7 +159,7 @@ public class CartPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_RemoveActionPerformed
 
     private void btn_ProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ProfileActionPerformed
-        ProfileService.showProfileForm();
+        showProfileForm();
     }//GEN-LAST:event_btn_ProfileActionPerformed
 
     private void btn_ConfirmorderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConfirmorderActionPerformed
